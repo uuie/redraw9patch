@@ -25,8 +25,17 @@ public class Main {
     private static int contentYend;
 
     public static void main(String[] args) throws IOException {
-        File sampleDir = new File("/home/chris/workspace/weipai-lite/res/drawable-hdpi");
-        String currentDir = "/home/chris/Desktop/iconpack/drawable-hdpi";
+	if(args.length != 4)
+	{
+
+	    System.err.println("USAGE: prog <PNG_DIR> <SAMPLE_DIR> <SAMPLEFROME_INT_VAL> <SAMPLETO_INT_VAL> ");
+	    System.exit(1);
+	}
+
+        File sampleDir = new File(args[1].trim());
+        String currentDir =args[0].trim();// "/home/chris/Desktop/iconpack/drawable-hdpi";
+	sampleFrom=Integer.parseInt(args[2].trim());
+	sampleTo=Integer.parseInt(args[3].trim());
         File f = new File(currentDir);
 
         File[] files = f.listFiles();
